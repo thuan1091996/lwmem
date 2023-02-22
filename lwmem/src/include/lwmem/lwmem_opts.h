@@ -41,4 +41,10 @@
  * copy & replace here settings you want to change values
  */
 
+#include "chip/osal.h"
+#include "chip/os_port.h"
+
+#define LWMEM_CFG_OS 1
+#define LWMEM_CFG_OS_MUTEX_HANDLE struct chip_os_mutex
+
 #endif /* LWMEM_OPTS_HDR_H */

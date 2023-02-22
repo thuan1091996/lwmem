@@ -1,5 +1,10 @@
 cmake_minimum_required(VERSION 3.22)
 
+idf_component_register(SRCS "./src/lwmem/lwmem.c"
+                      INCLUDE_DIRS "./src/include/"
+                      REQUIRES osal)
+
+
 # Debug message
 message("Entering ${CMAKE_CURRENT_LIST_DIR}/CMakeLists.txt")
 
