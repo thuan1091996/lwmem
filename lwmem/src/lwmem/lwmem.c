@@ -158,19 +158,19 @@ uint8_t lwmem_sys_mutex_isvalid(LWMEM_CFG_OS_MUTEX_HANDLE* m)
 {
     if (NULL != m)
     {
-        return m->handle != NULL;
+        return NULL != m->handle;
     }
     return 0;
 }
 
 uint8_t
 lwmem_sys_mutex_wait(LWMEM_CFG_OS_MUTEX_HANDLE* m) {
-    return chip_os_mutex_give(m) == CHIP_OS_OK;
+    return CHIP_OS_OK == chip_os_mutex_take(m, CHIP_OS_TIME_FOREVER);
 }
 
 uint8_t
 lwmem_sys_mutex_release(LWMEM_CFG_OS_MUTEX_HANDLE* m) {
-    return chip_os_mutex_take(m, CHIP_OS_TIME_FOREVER) == CHIP_OS_OK;
+    return chip_os_mutex_give(m) == CHIP_OS_OK;
 }
 
 
